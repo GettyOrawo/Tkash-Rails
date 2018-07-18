@@ -18,7 +18,6 @@ RSpec.describe Account, type: :model do
 
     context "account pin" do
     it {is_expected.to validate_numericality_of(:pin).only_integer}
-    # it {is_expected.to validate_length_of(:pin).is_at_least(4)}
     end
     
     context "account number" do
