@@ -20,6 +20,15 @@ end
 When("I click on {string}") do |string|
   click_link string
 end
+Given("the following transactions exist") do |table|
+  binding.pry
+  table.hashes.each{|hash| FactoryBot.create(:transaction, hash)}
+end
+
+Given("I am on the transactions page") do
+  visit '/transactions'
+end
+
 
 
 
