@@ -1,3 +1,10 @@
 balance
 pin
 accountnumber
+<% @accounts.each do |account|%>
+  <%= account.balance %>
+  <%= account.pin %>
+  <%= account.accountnumber %>
+<% end %>
+
+
