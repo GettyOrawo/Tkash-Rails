@@ -21,8 +21,12 @@ When("I click on {string}") do |string|
   click_link string
 end
 Given("the following transactions exist") do |table|
-  binding.pry
-  table.hashes.each{|hash| FactoryBot.create(:transaction, hash)}
+  table.hashes.each do |hash| 
+  acc=Account.find_by_accountnumber hash["account"]
+  hash["account"]=acc
+  FactoryBot.create(:transaction, hash)
+
+  end
 end
 
 Given("I am on the transactions page") do
