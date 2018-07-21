@@ -43,8 +43,20 @@ Feature:
     Then I click on "254711903303"
     And I should see "edit"
     Then I click on "edit"
-    When I go to the "254711903303" edit details
+    When I am on the "254711903303" edit details
     Then I should see "accountnumber"
     And I should see "pin"
     And I should see "balance"
+  Scenario: Update account details
+    Given I am on the "254711903303" edit details
+    Then I should see "accountnumber"
+    And I should see "pin"
+    And I should see "balance"
+    And I should see "update"
+    And I fill in "pin" with new details
+    And I fill in "balance" with new details
+    When I click on "update" 
+    Then I go to the "254711903303" details
+    Then I should see "4427"
+    Then I should not see "1234"
 

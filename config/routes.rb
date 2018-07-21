@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   get '/accounts/:id', to: 'accounts#show'
   get '/transactions', to: 'transactions#index'
   get '/accounts/edit/:id', to: 'accounts#edit', as: :account
+  # post '/accounts/edit/:id', to: 'accounts#update'
+  put '/accounts/edit/:id', to: 'accounts#update', as: :update_account
 end

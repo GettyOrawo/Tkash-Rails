@@ -8,4 +8,10 @@ class AccountsController < ApplicationController
   def edit
    @account = Account.find(params[:id])
   end
+  def update
+  @account = Account.find(params[:id])
+  if @account.update(params =>:accountnumber)
+        redirect_to(@account)
+  end
+  end
 end

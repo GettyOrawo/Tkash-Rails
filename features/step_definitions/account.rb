@@ -31,7 +31,12 @@ end
 Given("I am on the transactions page") do
   visit '/transactions'
 end
-When("I go to the {string} edit details") do |string|
+When("I am on the {string} edit details") do |string|
   account = Account.find_by_accountnumber string
   visit "/accounts/edit/#{account.id}"
 end
+Then("I fill in {string} with new details") do |string|
+  fill_in("account_pin", :with => '4427')
+  fill_in("account_balance", :with => '1190')
+end
+
