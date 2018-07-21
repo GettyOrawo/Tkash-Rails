@@ -38,13 +38,8 @@ Feature:
     And I should not see "254662244222"
 
   Scenario: Edit account details
-    Given I am on the accounts Page
-    Then I should see "254711903303"
-    Then I click on "254711903303"
-    And I should see "edit"
+    Given I am on the accounts page
+    And I click on "254711903303"
+    Then I should see "edit"
     Then I click on "edit"
-    When I go to the "254711903303" edit details
-    Then I should see "accountnumber"
-    And I should see "pin"
-    And I should see "balance"
-
+    And I should see a form

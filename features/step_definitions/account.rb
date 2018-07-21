@@ -25,16 +25,13 @@ Given("the following transactions exist") do |table|
   acc=Account.find_by_accountnumber hash["account"]
   hash["account"]=acc
   FactoryBot.create(:transaction, hash)
-
   end
 end
 
 Given("I am on the transactions page") do
   visit '/transactions'
 end
-
-
-
-
-
-
+When("I go to the {string} edit details") do |string|
+  account = Account.find_by_accountnumber string
+  visit "/accounts/edit/#{account.id}"
+end
