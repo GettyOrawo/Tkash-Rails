@@ -1,6 +1,7 @@
-<%= form_for @account do |f|%>
+<%= form_for @account, :url => {:action => 'update', :id => @account.id} do |f|%>
  accountnumber: <%= f.text_field :accountnumber%>
  balance: <%= f.text_field :balance%>
  pin: <%= f.text_field :pin%>
+ click to update<%= f.submit "update"%>
 <% end %>
-<%= link_to 'update', @account, :method=> :put %>
+

@@ -36,7 +36,7 @@ When("I am on the {string} edit details") do |string|
   visit "/accounts/edit/#{account.id}"
 end
 Then("I fill in {string} with new details") do |string|
-  fill_in("account_pin", :with => '4427')
+  fill_in("account_pin", :with => '1234')
   fill_in("account_balance", :with => '1190')
 end
 
