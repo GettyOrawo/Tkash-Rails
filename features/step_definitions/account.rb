@@ -47,5 +47,9 @@ Then("the new pin for {string} should be {string}") do |account, pin|
   acc = Account.find_by_accountnumber account
   expect("#{acc.pin}").to eq pin
 end
+Then("pin for {string} should remain {string}") do |account, pin|
+  acc = Account.find_by_accountnumber account
+  expect("#{acc.pin}").to eq pin
+end
 
 

@@ -1,4 +1,5 @@
 class Account < ApplicationRecord
+  validates :pin, presence: true
   validates :balance, numericality: {only_integer: true}
   validates :balance, numericality: {greater_than: 0, less_than: 3000}
   validates :pin, length: { minimum: 4}

@@ -4,5 +4,6 @@ Rails.application.routes.draw do
   get '/transactions', to: 'transactions#index'
   get '/accounts/edit/:id', to: 'accounts#edit', as: :account
   # post '/accounts/edit/:id', to: 'accounts#update'
-  put '/accounts/:id', to: 'accounts#update', as: :update_account
+  patch '/accounts/:id', to: 'accounts#update', as: :update_account
+  put '/accounts/:id', to: 'accounts#update'
 end
