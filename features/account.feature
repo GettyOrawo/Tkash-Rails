@@ -47,19 +47,11 @@ Feature:
     Then I should see "accountnumber"
     And I should see "pin"
     And I should see "balance"
-  Scenario: Update account details
+
+  Scenario: Edit account successfully
     Given I am on the "254711903303" edit details
-    Then I should see "accountnumber"
-    And I should see "pin"
-    And I should see "balance"
-    And I should see "update"
-    And I fill in "pin" with new details
-    And I fill in "balance" with new details
-    # When I click on "update" 
-    # failure: couldnot find clickable link 'update'
-    And I go to the "254711903303" details
-    Then I should see "4427"
-    #I don't understand why this works with seed data rather than background data
-    #must be the fill_in doesn't work
-    Then I should not see "1111"
+    Then I change "account_pin" to "3333"
+    And I submit the changes
+    Then the new pin for "254711903303" should be "3333"
+    And the new pin for "254008899228" should be "6633"
 

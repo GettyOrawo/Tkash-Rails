@@ -11,14 +11,11 @@ class AccountsController < ApplicationController
   def update
   @account = Account.find(params[:id])
   if @account.update_attributes(account_params)
-    #this redirect doesn't seem to work
-     redirect_to(@account)
+     redirect_to @account
   else
-    #this one too. I have to check manually for reflected changes
-    redirect_to(@account)
+    render 'edit'
   end
   end
-#Add private account params since params[:account] didn't seem to be working
   private
   def account_params
     params.require(:account).permit(:accountnumber, :balance, :pin)

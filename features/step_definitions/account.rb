@@ -35,8 +35,17 @@ When("I am on the {string} edit details") do |string|
   account = Account.find_by_accountnumber string
   visit "/accounts/edit/#{account.id}"
 end
-Then("I fill in {string} with new details") do |string|
-  fill_in("account_pin", :with => '1234')
-  fill_in("account_balance", :with => '1190')
+Then("I change {string} to {string}") do |field, value|
+  fill_in field, with:value
 end
+
+Then("I submit the changes") do
+  click_button 'update'
+end
+
+Then("the new pin for {string} should be {string}") do |account, pin|
+  acc = Account.find_by_accountnumber account
+  expect("#{acc.pin}").to eq pin
+end
+
 

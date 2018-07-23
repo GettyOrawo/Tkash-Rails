@@ -1,7 +1,17 @@
 <%= form_for @account, :url => {:action => 'update', :id => @account.id} do |f|%>
- accountnumber: <%= f.text_field :accountnumber%>
- balance: <%= f.text_field :balance%>
- pin: <%= f.text_field :pin%>
- click to update<%= f.submit "update"%>
+  <% if @account.errors.any? %>
+    <h1>
+      <%= pluralize(@account.errors.count, "error") %> prohibited account details from being saved
+    </h1>
+    <ul>
+      <% @account.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  accountnumber: <%= f.text_field :accountnumber%>
+  balance: <%= f.text_field :balance%>
+  pin: <%= f.text_field :pin%>
+  click to update<%= f.submit "update"%>
 <% end %>
 
