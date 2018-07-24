@@ -1,0 +1,6 @@
+<%= form_for @account, :url => {:action => 'create', :id => @account.id} do |f| %>
+ balance:  <%= f.text_field :balance %>
+ pin:  <%= f.text_field :pin %>
+ accountnumber: <%= f.text_field :accountnumber %>
+ <%= f.submit 'create new account' %>
+<% end %>

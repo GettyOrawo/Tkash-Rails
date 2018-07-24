@@ -16,6 +16,18 @@ class AccountsController < ApplicationController
     render 'edit'
   end
   end
+  def new
+    @account = Account.new
+  end
+  def create
+    @account = Account.new(account_params)
+    if @account.save
+      flash[:sucess] = "created account successfully"
+      redirect_to(@account)
+    else
+      render 'new'
+    end
+  end
   private
   def account_params
     params.require(:account).permit(:accountnumber, :balance, :pin)

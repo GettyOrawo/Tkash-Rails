@@ -1,10 +1,8 @@
-balance
-pin
-accountnumber
+<%= link_to 'create new account', new_account_path%>
 <% @accounts.each do |account|%>
-  <%= account.balance %>
-  <%= account.pin %>
-  <%= link_to account.accountnumber, "/accounts/#{account.id}"%>
+ balance:  <%= account.balance %>
+ pin: <%= account.pin %>
+ accountnumber:  <%= link_to account.accountnumber, "/accounts/#{account.id}"%>
 <% end %>
 
 

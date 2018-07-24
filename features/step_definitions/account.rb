@@ -51,5 +51,16 @@ Then("pin for {string} should remain {string}") do |account, pin|
   acc = Account.find_by_accountnumber account
   expect("#{acc.pin}").to eq pin
 end
+When("I am on the new accounts page") do
+  visit '/accounts/new'
+end
 
-
+Then("I fill in {string} with {string}") do |field, value|
+  fill_in field, with:value
+end
+Then("I submit the details") do
+  click_button 'create new account'
+end
+When("I click on the {string}") do |string|
+  click_link string
+end

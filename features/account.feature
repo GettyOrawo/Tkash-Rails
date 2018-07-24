@@ -62,5 +62,20 @@ Feature:
     And I should see "Pin is too short (minimum is 4 characters)"
     And pin for "254712345" should remain "1234" 
 
+  Scenario: Successfully create a new account
+    Given I am on the accounts Page
+    When I click on the "create new account"
+    And I am on the new accounts page
+    Then I should see "balance"
+    And I should see "pin"
+    And I should see "accountnumber"
+    Then I fill in "account_accountnumber" with "254711904404"
+    And I fill in "account_pin" with "6666"
+    And I fill in "account_balance" with "1212"
+    And I submit the details
+    When I go to the "254711904404" details
+    And I should see "254711904404"
+    And I should see "1212"
+    And I should see "6666"
 
 
